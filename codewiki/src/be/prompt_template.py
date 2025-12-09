@@ -10,18 +10,24 @@ Create documentation that helps developers and maintainers understand:
 3. How the module fits into the overall system
 </OBJECTIVES>
 
+<LANGUAGE_REQUIREMENT>
+**IMPORTANT**: All documentation must be written in **Chinese (Simplified)**.
+- You should keep technical terms, variable names, function names, and specific code references in **English**.
+- The narrative, explanations, and descriptions must be in Chinese.
+</LANGUAGE_REQUIREMENT>
+
 <DOCUMENTATION_STRUCTURE>
 Generate documentation following this structure:
 
 1. **Main Documentation File** (`{module_name}.md`):
-   - Brief introduction and purpose
+   - Brief introduction and purpose (in Chinese)
    - Architecture overview with diagrams
-   - High-level functionality of each sub-module including references to its documentation file
+   - High-level functionality of each sub-module including references to its documentation file (in Chinese)
    - Link to other module documentation instead of duplicating information
 
 2. **Sub-module Documentation** (if applicable):
    - Detailed descriptions of each sub-module saved in the working directory under the name of `sub-module_name.md`
-   - Core components and their responsibilities
+   - Core components and their responsibilities (in Chinese)
 
 3. **Visual Documentation**:
    - Mermaid diagrams for architecture, dependencies, and data flow
@@ -56,6 +62,12 @@ Create a comprehensive documentation that helps developers and maintainers under
 3. How the module fits into the overall system
 </OBJECTIVES>
 
+<LANGUAGE_REQUIREMENT>
+**IMPORTANT**: All documentation must be written in **Chinese (Simplified)**.
+- Keep technical terms, variable names, and code references in **English**.
+- Explanations and descriptions must be in Chinese.
+</LANGUAGE_REQUIREMENT>
+
 <DOCUMENTATION_REQUIREMENTS>
 Generate documentation following the following requirements:
 1. Structure: Brief introduction → comprehensive documentation with Mermaid diagrams
@@ -66,7 +78,7 @@ Generate documentation following the following requirements:
 <WORKFLOW>
 1. Analyze provided code components and module structure
 2. Explore dependencies between components if needed
-3. Generate complete {module_name}.md documentation file
+3. Generate complete {module_name}.md documentation file in Chinese
 </WORKFLOW>
 
 <AVAILABLE_TOOLS>
@@ -77,6 +89,7 @@ Generate documentation following the following requirements:
 
 USER_PROMPT = """
 Generate comprehensive documentation for the {module_name} module using the provided module tree and core components.
+**Please ensure the output is in Chinese (Simplified), but keep technical terms in English.**
 
 <MODULE_TREE>
 {module_tree}
@@ -101,7 +114,9 @@ Provide `{repo_name}` repo structure and its core modules documentation:
 {repo_structure}
 </REPO_STRUCTURE>
 
-Please generate the overview of the `{repo_name}` repository in markdown format with the following structure:
+Please generate the overview of the `{repo_name}` repository in markdown format with the following structure.
+**IMPORTANT: The content must be written in Chinese (Simplified), keeping technical terms in English.**
+
 <OVERVIEW>
 overview_content
 </OVERVIEW>
@@ -120,12 +135,16 @@ Provide repo structure and core components documentation of the `{module_name}` 
 {repo_structure}
 </REPO_STRUCTURE>
 
-Please generate the overview of the `{module_name}` module in markdown format with the following structure:
+Please generate the overview of the `{module_name}` module in markdown format with the following structure.
+**IMPORTANT: The content must be written in Chinese (Simplified), keeping technical terms in English.**
+
 <OVERVIEW>
 overview_content
 </OVERVIEW>
 """.strip()
 
+# CLUSTER prompts usually return JSON/Structure, so language is less critical there,
+# but we keep them as is to ensure logic stability.
 CLUSTER_REPO_PROMPT = """
 Here is list of all potential core components of the repository (It's normal that some components are not essential to the repository):
 <POTENTIAL_CORE_COMPONENTS>

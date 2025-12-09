@@ -137,6 +137,10 @@ DEFAULT_IGNORE_PATTERNS = {
     "Test",
     "examples",
     "Examples",
+    "3rdParty",
+    "Build",
+    "PreBuilt",
+    "QtsDocs",
 }
 
 DEFAULT_INCLUDE_PATTERNS = [
